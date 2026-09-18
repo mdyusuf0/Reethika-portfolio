@@ -86,13 +86,16 @@ const Hero = ({ onVideoLoaded }) => {
       <div className="absolute inset-0 z-10 pointer-events-none overflow-hidden hidden md:block">
         {impactMetrics.map((metric, idx) => {
           const isWhiteText = ['Load Time Optimization', 'NPTEL Elite IoT Score'].includes(metric.label);
+          const rightPos = metric.label === 'NPTEL Elite IoT Score' 
+            ? '6%' 
+            : `${5 + (idx % 2 === 0 ? 10 : 25)}%`;
           return (
             <div 
               key={idx}
               className={`absolute glass-panel px-3 py-1.5 rounded-full flex flex-col items-center justify-center animate-float shadow-lg border ${isWhiteText ? 'border-white/10 bg-black/20' : 'border-black/10 bg-white/10'}`}
               style={{
                 top: `${15 + (idx * 15)}%`,
-                right: `${5 + (idx % 2 === 0 ? 10 : 25)}%`,
+                right: rightPos,
                 animationDelay: `${idx * 1.5}s`
               }}
             >
@@ -113,7 +116,7 @@ const Hero = ({ onVideoLoaded }) => {
             className="text-black text-3xl md:text-4xl lg:text-5xl font-black mb-3 tracking-tight leading-[1.1] font-sans"
           >
             Hi, I'm
-            <span className="font-cursive text-[var(--color-brand-red)] block mt-1 text-4xl md:text-5xl lg:text-6xl drop-shadow-md">
+            <span className="font-cursive text-[#800000] block mt-1 text-4xl md:text-5xl lg:text-6xl drop-shadow-md">
               {personalInfo.name}
             </span>
           </h1>
