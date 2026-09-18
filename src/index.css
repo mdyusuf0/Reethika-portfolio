@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-bg-deep: #050505;
+  --color-bg-primary: #090909;
+  --color-bg-elevated: #111111;
+  --color-surface-dark: #161616;
+  --color-surface-soft: rgba(255,255,255,0.045);
+  --color-surface-glass: rgba(255,255,255,0.065);
+  
+  --color-text-primary: #F7F7F5;
+  --color-text-secondary: #B8B8B3;
+  --color-text-muted: #7A7A76;
+  --color-silver: #D7D7D2;
+  --color-graphite: #2A2A2A;
+  
+  /* User requested red accents */
+  --color-brand-red: #E63946;
+  --color-brand-red-glow: rgba(230, 57, 70, 0.4);
+
+  --color-border-soft: rgba(255,255,255,0.12);
+  --color-border-bright: rgba(255,255,255,0.28);
+  --color-glow-soft: rgba(255,255,255,0.16);
+
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-cursive: 'Dancing Script', cursive;
+
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-pulse-slow: pulseSlow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+  }
+  
+  @keyframes pulseSlow {
+    0%, 100% { opacity: 1; }
+    50% { opacity: .5; }
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-bg-deep);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+[data-aos="drop-bounce"] {
+  opacity: 0;
+}
+[data-aos="drop-bounce"].aos-animate {
+  animation: dropBounce 1.2s cubic-bezier(0.28, 0.84, 0.42, 1) forwards;
+}
+
+@keyframes dropBounce {
+  0% { transform: translateY(-300px); opacity: 0; }
+  50% { transform: translateY(0); opacity: 1; }
+  65% { transform: translateY(-40px); opacity: 1; }
+  80% { transform: translateY(0); opacity: 1; }
+  90% { transform: translateY(-15px); opacity: 1; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+.glass-panel {
+  background: var(--color-surface-glass);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--color-border-soft);
+}
+
+.text-gradient {
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(to right, #ffffff, #B8B8B3);
+}
+
+.text-gradient-red {
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(to right, #E63946, #F28482);
+}
